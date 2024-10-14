@@ -6,7 +6,7 @@ import { Button,
         ContainerInput, 
         Input,
         InputLabel
- } from "../../styles"
+ } from "./styles"
 
  import UsersImage from '../../assets/users.png'
 
