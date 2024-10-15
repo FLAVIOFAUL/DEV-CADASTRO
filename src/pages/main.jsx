@@ -1,8 +1,8 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { GlobalStyles } from '../styles/GlobalStyles.js'
-import Home from './Home/index.jsx'
+import { GlobalStyles } from './styles/GlobalStyles.js'
+import Home from './pages/Home'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
