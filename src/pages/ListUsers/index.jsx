@@ -1,57 +1,58 @@
 import api from "../../services/api"
 import { useEffect, useState } from "react"
-import  Button from "../../components/Button"
+import Button from "../../components/Button"
 import TopBackground from "../../components/TopBackground"
 import Trash from '../../assets/trash.svg'
-import { Container,
-         Title, 
-         ContainerUsers,
-         TrashIcon,
-         CardUsers,
-         AvatarUser
-    } from "./styles"
+import {
+    Container,
+    Title,
+    ContainerUsers,
+    TrashIcon,
+    CardUsers,
+    AvatarUser
+} from "./styles"
 
 
-function ListUsers(){
+function ListUsers() {
     const [users, setUsers] = useState([])
-    
-      useEffect (() => {
+
+    useEffect(() => {
 
         async function getUsers() {
-            
-        
-         const {data} =  await api.get('/usuarios')
-          
-          setUsers(data) 
+
+
+            const { data } = await api.get('/usuarios')
+
+            setUsers(data)
         }
-           getUsers()
-           
+        getUsers()
+
     }, [])
-        
+
     return (
         <Container>
-                    <TopBackground />
-                    
+            <TopBackground />
+
             <Title>Lista de Usuarios</Title>
-              
 
-         <ContainerUsers>
 
-            {users.map( user => (
-                <CardUsers key={user.id}>
-                    <AvatarUser src={'https://avatar.iran.liara.run/public?username=${user.id}'}/>
-              <div >
-                    <h3>user.name</h3>
-                    <p>user.age</p>
-                    <p>user.email</p>
+            <ContainerUsers>
 
-              </div>
-              <TrashIcon src={Trash} alt='icone-lixo'/>
-              </CardUsers>
-            ))}
-              </ContainerUsers>
+                {users.map(user => (
+                    <CardUsers key={user.id}>
+                        <AvatarUser src={'https://avatar.iran.liara.run/public?username=${user.id}'} />
+                        <div >
+                            <h3>user.name</h3>
+                            <p>user.age</p>
+                            <p>user.email</p>
 
-            
+                        </div>
+                        <TrashIcon src={Trash} alt='icone-lixo' />
+                    </CardUsers>
+                ))}
+            </ContainerUsers>
+
+
             <Button type="button">Voltar</Button>
         </Container>
 
